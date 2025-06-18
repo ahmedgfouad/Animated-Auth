@@ -6,7 +6,7 @@ extension AppColorHelper on BuildContext {
 
 @immutable
 class AppColors extends ThemeExtension<AppColors> {
-  final Color browen;
+  final Color move;
   final Color orange;
   final Color white;
   final Color offWhite;
@@ -14,7 +14,7 @@ class AppColors extends ThemeExtension<AppColors> {
   final Color green;
 
   const AppColors({
-    required this.browen,
+    required this.move,
     required this.orange,
     required this.white,
     required this.offWhite,
@@ -32,7 +32,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? green,
   }) {
     return AppColors(
-      browen: browen ?? this.browen,
+      move: browen ?? this.move,
       orange: orange ?? this.orange,
       white: white ?? this.white,
       offWhite: offWhite ?? this.offWhite,
@@ -45,7 +45,7 @@ class AppColors extends ThemeExtension<AppColors> {
   AppColors lerp(ThemeExtension<AppColors>? other, double t) {
     if (other is! AppColors) return this;
     return AppColors(
-      browen: Color.lerp(browen, other.browen, t)!,
+      move: Color.lerp(move, other.move, t)!,
       orange: Color.lerp(orange, other.orange, t)!,
       white: Color.lerp(white, other.white, t)!,
       offWhite: Color.lerp(offWhite, other.offWhite, t)!,
@@ -54,4 +54,3 @@ class AppColors extends ThemeExtension<AppColors> {
     );
   }
 }
-

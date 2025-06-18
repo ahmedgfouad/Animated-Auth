@@ -1,36 +1,30 @@
-
+import 'package:animated_auth/feature/home/views/manager/theam_cubit/theam_cubit%20.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:animated_auth/core/utils/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-  const CustomAppBar({
-    super.key,
-    required this.text,
-    required this.onPressed,
-    required this.icon,
-  });
-  final String text;
-  final void Function() onPressed;
-  final IconData icon;
+  const CustomAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       color: Colors.transparent,
-
       elevation: 0,
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           CircleAvatar(
-            backgroundColor: const Color.fromARGB(255, 106, 91, 218),
+            backgroundColor: context.appColors.move,
             child: IconButton(
-              onPressed: onPressed,
-              icon: Icon(icon, color: Colors.white),
+              onPressed: () {
+                context.read<ThemeCubit>().toggleTheme();
+              },
+              icon: Icon(Icons.dark_mode, color: context.appColors.white),
             ),
           ),
-          Spacer(),
-          Text(
-            text,
+          const Spacer(),
+          const Text(
+            "Profile",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ],

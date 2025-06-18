@@ -2,17 +2,17 @@ import 'package:animated_auth/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 final lightTheme = ThemeData(
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: const Color.fromARGB(255, 237, 239, 240),
   appBarTheme: AppBarTheme(backgroundColor: Colors.white),
   brightness: Brightness.light,
   useMaterial3: true,
   extensions: const [
     AppColors(
-      browen: Color(0xff6D3805),
-      orange: Color(0xffFF5E00),
+      move: Color(0xff667EEA),
+      orange: Color(0xffFF9800),
       white: Color(0xffFFFFFF),
-      offWhite: Color(0xffF3F3F3),
-      grey: Color(0xff929292),
+      offWhite: Color(0xffF8F9FA),
+      grey: Color(0xff666666),
       green: Color(0xff3AA14C),
     ),
   ],
@@ -23,12 +23,12 @@ final darkTheme = ThemeData(
   useMaterial3: true,
   extensions: const [
     AppColors(
-      browen: Color.fromARGB(255, 234, 175, 27),
-      orange: Color(0xffFF7A33),
-      white: Color.fromARGB(255, 36, 36, 36),
-      offWhite: Color(0xff1E1E1E),
+      move: Color(0xff667EEA),
+      orange: Color(0xffFF9800),
+      white: Color(0xff2a2a2a),
+      offWhite: Color(0xffF8F9FA),
       grey: Color(0xff666666),
-      green: Color(0xff4CAF50),
+      green: Color(0xff3AA14C),
     ),
   ],
 );

@@ -1,3 +1,4 @@
+import 'package:animated_auth/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormFieldWidget extends StatefulWidget {
@@ -68,18 +69,16 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget>
         curve: Curves.easeInOut,
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: context.appColors.white,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(
-            color: _isFocused
-                ? const Color.fromARGB(255, 122, 160, 222)
-                : Colors.grey.shade300,
+            color: _isFocused ? context.appColors.grey : Colors.grey.shade300,
             width: 1.5,
           ),
           boxShadow: _isFocused
               ? [
                   BoxShadow(
-                    color: const Color.fromARGB(255, 137, 174, 238),
+                    color: context.appColors.move.withAlpha(100),
                     blurRadius: 12,
                     offset: const Offset(0, 4),
                   ),
@@ -94,7 +93,7 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget>
           decoration: InputDecoration(
             hintText: widget.hintText,
             border: InputBorder.none,
-            hintStyle: const TextStyle(color: Colors.grey),
+            hintStyle: TextStyle(color: context.appColors.grey),
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {

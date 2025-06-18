@@ -1,16 +1,23 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:animated_auth/core/utils/images.dart';
+import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/feature/home/data/models/dashpord_data_model.dart';
+import 'package:animated_auth/feature/home/views/manager/home_cubit/home_cubit%20.dart';
 import 'package:animated_auth/feature/home/widget/custom_app_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class HomeViewBody extends StatelessWidget {
-  HomeViewBody({super.key});
+class HomeViewBody extends StatefulWidget {
+  const HomeViewBody({super.key});
 
-  final List<Map<String, dynamic>> dashboardData = [
-    {'title': 'Orders', 'subtitle': '1,234', 'image': AppImages.orderImg},
-    {'title': 'Sales', 'subtitle': '1,234', 'image': AppImages.saleImg},
-    {'title': 'Messages', 'subtitle': '1,234', 'image': AppImages.messageImg},
-  ];
+  @override
+  State<HomeViewBody> createState() => _HomeViewBodyState();
+}
+
+class _HomeViewBodyState extends State<HomeViewBody> {
+  @override
+  initState() {
+    context.read<HomeCubit>().loadDashboardData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +27,24 @@ class HomeViewBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(
-              text: 'Profile',
-              onPressed: () {},
-              icon: Icons.dark_mode,
-            ),
+            CustomAppBar(),
             const SizedBox(height: 20),
             Expanded(
-              child: ListView.separated(
-                itemBuilder: (context, index) => CustomHomeCardWidget(
-                  title: dashboardData[index]['title'],
-                  subtitle: dashboardData[index]['subtitle'],
-                  image: dashboardData[index]['image'],
-                ),
-                separatorBuilder: (context, index) =>
-                    const SizedBox(height: 20),
-                itemCount: 3,
+              child: BlocBuilder<HomeCubit, List<DashboardItemModel>>(
+                builder: (context, dashboardData) {
+                  return ListView.separated(
+                    itemCount: dashboardData.length,
+                    itemBuilder: (context, index) {
+                      final item = dashboardData[index];
+                      return CustomHomeCardWidget(
+                        title: item.title,
+                        subtitle: item.subtitle,
+                        image: item.image,
+                      );
+                    },
+                    separatorBuilder: (_, __) => const SizedBox(height: 20),
+                  );
+                },
               ),
             ),
           ],
@@ -61,7 +70,7 @@ class CustomHomeCardWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 25.0, vertical: 10.0),
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.appColors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       height: MediaQuery.of(context).size.height / 5,
@@ -81,7 +90,7 @@ class CustomHomeCardWidget extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: const Color.fromARGB(255, 97, 100, 103),
+                  color: context.appColors.grey,
                 ),
               ),
             ],
