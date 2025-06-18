@@ -27,8 +27,7 @@ class _HomeViewBodyState extends State<HomeViewBody> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             CustomAppBar(),
-            const SizedBox(height: 20),
-
+            const SizedBox(height: 20), 
             ListOfHomeCartWidget(),
           ],
         ),

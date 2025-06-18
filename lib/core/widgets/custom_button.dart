@@ -1,3 +1,4 @@
+import 'package:animated_auth/core/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatefulWidget {
@@ -65,42 +66,54 @@ class _CustomButtonState extends State<CustomButton>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: widget.height ?? 55,
-      width: widget.width ?? MediaQuery.of(context).size.width,
-      child: ElevatedButton(
-        onPressed: isLoading ? null : handleTap,
-        style: ElevatedButton.styleFrom(
-          backgroundColor:
-              widget.backgroundColor ?? const Color.fromARGB(255, 97, 99, 248),
-          foregroundColor: widget.textColor ?? Colors.white,
-          elevation: 6,
-          shadowColor: Colors.deepPurple,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20),
-          ),
-        ),
-        child: isLoading
-            ? AnimatedBuilder(
-                animation: _colorAnimation,
-                builder: (_, __) => Text(
-                  'جاري تسجيل الدخول...',
-                  style: TextStyle(
-                    color: _colorAnimation.value,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
-            : Text(
-                widget.text,
-                style: TextStyle(
-                  fontSize: 18,
-                  color: widget.textColor ?? Colors.white,
-                  fontWeight: FontWeight.w600,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isWide = constraints.maxWidth > 600;
+
+        double buttonWidth = isWide
+            ? constraints.maxWidth * 0.5
+            : constraints.maxWidth;
+
+        return Center(
+          child: SizedBox(
+            height: widget.height ?? 55,
+            width: widget.width ?? buttonWidth,
+            child: ElevatedButton(
+              onPressed: isLoading ? null : handleTap,
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    widget.backgroundColor ?? context.appColors.move,
+                foregroundColor: widget.textColor ?? Colors.white,
+                elevation: 6,
+                shadowColor: Colors.deepPurple,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
                 ),
               ),
-      ),
+              child: isLoading
+                  ? AnimatedBuilder(
+                      animation: _colorAnimation,
+                      builder: (_, __) => Text(
+                        'جاري تسجيل الدخول...',
+                        style: TextStyle(
+                          color: _colorAnimation.value,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      widget.text,
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: widget.textColor ?? Colors.white,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

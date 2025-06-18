@@ -59,9 +59,12 @@ class _LoginViewBodyState extends State<LoginViewBody>
             const SizedBox(height: 30),
             CustomTextFormFieldWidget(hintText: 'كلمة المرور'),
             const SizedBox(height: 30),
-            CustomButton(text: 'text', onPressed: () {
-              GoRouter.of(context).push(AppRouter.kHomeView);
-            }),
+            CustomButton(
+              text: 'تسجيل الدخول',
+              onPressed: () {
+                GoRouter.of(context).push(AppRouter.kHomeView);
+              },
+            ),
           ],
         ),
       ),

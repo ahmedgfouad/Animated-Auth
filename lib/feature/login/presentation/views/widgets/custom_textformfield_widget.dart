@@ -60,49 +60,65 @@ class _CustomTextFormFieldWidgetState extends State<CustomTextFormFieldWidget>
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return ScaleTransition(
-      scale: _scaleAnimation,
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 300),
-        curve: Curves.easeInOut,
-        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        decoration: BoxDecoration(
-          color: context.appColors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: _isFocused ? context.appColors.grey : Colors.grey.shade300,
-            width: 1.5,
+@override
+Widget build(BuildContext context) {
+  return LayoutBuilder(
+    builder: (context, constraints) {
+      bool isWide = constraints.maxWidth > 600; 
+      double fieldWidth = isWide ? constraints.maxWidth * 0.5 : constraints.maxWidth;
+
+      return Center( 
+        child: SizedBox(
+          width: fieldWidth,
+          child: ScaleTransition(
+            scale: _scaleAnimation,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              decoration: BoxDecoration(
+                color: context.appColors.white,
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(
+                  color: _isFocused
+                      ? context.appColors.grey
+                      : Colors.grey.shade300,
+                  width: 1.5,
+                ),
+                boxShadow: _isFocused
+                    ? [
+                        BoxShadow(
+                          color: context.appColors.move.withAlpha(100),
+                          blurRadius: 12,
+                          offset: const Offset(0, 4),
+                        ),
+                      ]
+                    : [],
+              ),
+              child: TextFormField(
+                focusNode: _focusNode,
+                controller: widget.controller,
+                keyboardType: widget.keyboardType,
+                textAlign: TextAlign.right,
+                decoration: InputDecoration(
+                  hintText: widget.hintText,
+                  border: InputBorder.none,
+                  hintStyle: TextStyle(color: context.appColors.grey),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'يرجى إدخال ${widget.hintText}';
+                  }
+                  return null;
+                },
+              ),
+            ),
           ),
-          boxShadow: _isFocused
-              ? [
-                  BoxShadow(
-                    color: context.appColors.move.withAlpha(100),
-                    blurRadius: 12,
-                    offset: const Offset(0, 4),
-                  ),
-                ]
-              : [],
         ),
-        child: TextFormField(
-          focusNode: _focusNode,
-          controller: widget.controller,
-          keyboardType: widget.keyboardType,
-          textAlign: TextAlign.right,
-          decoration: InputDecoration(
-            hintText: widget.hintText,
-            border: InputBorder.none,
-            hintStyle: TextStyle(color: context.appColors.grey),
-          ),
-          validator: (value) {
-            if (value == null || value.isEmpty) {
-              return 'يرجى إدخال ${widget.hintText}';
-            }
-            return null;
-          },
-        ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}
+
+
 }
