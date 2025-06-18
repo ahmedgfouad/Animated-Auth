@@ -18,7 +18,7 @@ class HomeView extends StatelessWidget {
           showModalBottomSheet(
             context: context,
             isScrollControlled: true,
-            backgroundColor: Colors.transparent, // شفافية للخلفية
+            backgroundColor: Colors.transparent,
             builder: (context) => const _AnimatedBottomSheetContent(),
           );
         },
@@ -41,7 +41,6 @@ class _AnimatedBottomSheetContentState
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
-  // late Animation<Offset> _slideAnimation;
 
   @override
   void initState() {
@@ -54,12 +53,7 @@ class _AnimatedBottomSheetContentState
     _scaleAnimation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeOutBack,
-    );
-
-    // _slideAnimation = Tween<Offset>(
-    //   begin: const Offset(0, 0.3),
-    //   end: Offset.zero,
-    // ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
+    ); 
   }
 
   @override
