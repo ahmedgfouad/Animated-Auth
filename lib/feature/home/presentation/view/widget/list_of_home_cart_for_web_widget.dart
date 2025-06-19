@@ -15,17 +15,13 @@ class ListOfHomeCardForWebViewWidget extends StatelessWidget {
           builder: (context, constraints) {
             final screenWidth = constraints.maxWidth;
 
-            // نحدد عدد الأعمدة
             final crossAxisCount = screenWidth > 1000 ? 3 : 2;
 
-            // نحدد عرض كل عنصر
             final itemWidth =
                 (screenWidth - 50 * (crossAxisCount - 1)) / crossAxisCount;
 
-            // نحدد ارتفاع ثابت أو نسبي
             final itemHeight = 130;
 
-            // ثم نحسب النسبة
             final aspectRatio = itemWidth / itemHeight;
 
             return GridView.builder(

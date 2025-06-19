@@ -15,13 +15,16 @@ class OnboardingPageViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pages = context.read<OnboardingCubit>().pages;
+
     return PageView.builder(
       controller: pageController,
-      itemCount: 3,
+      itemCount: pages.length,
       onPageChanged: (index) =>
-
           context.read<OnboardingCubit>().changePage(index),
       itemBuilder: (context, index) {
+        final pageData = pages[index];
+
         return AnimatedBuilder(
           animation: pageController,
           builder: (context, child) {
@@ -37,7 +40,12 @@ class OnboardingPageViewWidget extends StatelessWidget {
                 duration: const Duration(milliseconds: 500),
                 child: SlideTransition(
                   position: floatingAnimation,
-                  child: OnboardingPage(index: index),
+                  child: OnboardingPage(
+                    index: index,
+                    title: pageData.title,
+                    description: pageData.description,
+                    icon: pageData.icon,
+                  ),
                 ),
               ),
             );
@@ -47,4 +55,4 @@ class OnboardingPageViewWidget extends StatelessWidget {
       physics: const BouncingScrollPhysics(),
     );
   }
-} 
+}

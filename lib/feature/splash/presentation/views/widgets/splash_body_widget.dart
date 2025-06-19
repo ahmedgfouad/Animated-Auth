@@ -33,7 +33,7 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
     return Center(
       child: FadeTransition(
         opacity: fadeAnimation,
-        child: Image.asset(AppImages.splashImg),
+        child: Image.asset(AppImages.loginImg, height: 200, width: 200),
       ),
     );
   }
@@ -44,13 +44,9 @@ class _SplashBodyWidgetState extends State<SplashBodyWidget>
       duration: const Duration(seconds: 2),
     );
 
-    fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: animationController,
-      curve: Curves.easeIn,
-    ));
+    fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: animationController, curve: Curves.easeIn),
+    );
 
     animationController.forward();
   }

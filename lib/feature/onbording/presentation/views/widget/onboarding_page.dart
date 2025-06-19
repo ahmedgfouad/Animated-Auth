@@ -2,7 +2,16 @@ import 'package:flutter/material.dart';
 
 class OnboardingPage extends StatelessWidget {
   final int index;
-  const OnboardingPage({super.key, required this.index});
+  final String title;
+  final String description;
+  final IconData icon;
+  const OnboardingPage({
+    super.key,
+    required this.index,
+    required this.title,
+    required this.description,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +27,18 @@ class OnboardingPage extends StatelessWidget {
               color: const Color(0xFF7B4397),
               borderRadius: BorderRadius.circular(30),
             ),
-            child: const Center(
-              child: Icon(Icons.rocket_launch, color: Colors.white, size: 80),
+            child:  Center(
+              child: Icon(icon, color: Colors.white, size: 80),
             ),
           ),
           const SizedBox(height: 40),
-          const Text(
-            "مرحباً بك!",
+          Text(
+           title,
             style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          const Text(
-            "اكتشف تجربة جديدة مع تطبيقنا المتطور والمليء بالميزات الرائعة",
+           Text(
+           description,
             style: TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
