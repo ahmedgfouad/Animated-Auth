@@ -1,4 +1,5 @@
-
+import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/feature/home/widget/bottom_sheet_content_widget.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedBottomSheetContent extends StatefulWidget {
@@ -9,8 +10,7 @@ class AnimatedBottomSheetContent extends StatefulWidget {
       AnimatedBottomSheetContentState();
 }
 
-class AnimatedBottomSheetContentState
-    extends State<AnimatedBottomSheetContent>
+class AnimatedBottomSheetContentState extends State<AnimatedBottomSheetContent>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
@@ -26,7 +26,7 @@ class AnimatedBottomSheetContentState
     _scaleAnimation = CurvedAnimation(
       parent: _controller,
       curve: Curves.easeOutBack,
-    ); 
+    );
   }
 
   @override
@@ -40,20 +40,13 @@ class AnimatedBottomSheetContentState
     return ScaleTransition(
       scale: _scaleAnimation,
       child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+        padding: const EdgeInsets.all(10),
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: context.appColors.white,
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: const [
-            Text("Hello from Bottom Sheet!", style: TextStyle(fontSize: 20)),
-            SizedBox(height: 20),
-            Text("You can add your custom content here."),
-            SizedBox(height: 20),
-          ],
-        ),
+        child: BottomSheetContentWidget(),
       ),
     );
   }

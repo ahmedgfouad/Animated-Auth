@@ -11,7 +11,7 @@ final lightTheme = ThemeData(
       move: Color(0xff667EEA),
       orange: Color(0xffFF9800),
       white: Color(0xffFFFFFF),
-      offWhite: Color(0xffF8F9FA),
+      offWhite: Color.fromARGB(255, 237, 239, 240),
       grey: Color(0xff666666),
       green: Color(0xff3AA14C),
     ),
@@ -19,6 +19,7 @@ final lightTheme = ThemeData(
 );
 
 final darkTheme = ThemeData(
+  scaffoldBackgroundColor: Colors.black,
   brightness: Brightness.dark,
   useMaterial3: true,
   extensions: const [
@@ -26,7 +27,7 @@ final darkTheme = ThemeData(
       move: Color(0xff667EEA),
       orange: Color(0xffFF9800),
       white: Color(0xff2a2a2a),
-      offWhite: Color(0xffF8F9FA),
+      offWhite: Colors.black,
       grey: Color(0xff666666),
       green: Color(0xff3AA14C),
     ),
