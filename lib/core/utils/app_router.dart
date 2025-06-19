@@ -2,7 +2,6 @@ import 'package:animated_auth/feature/home/presentation/view/home_view.dart';
 import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
 import 'package:animated_auth/feature/login/presentation/views/login_view.dart';
 import 'package:animated_auth/feature/onbording/onboarding_view.dart';
-import 'package:animated_auth/feature/splash/presentation/views/splash_viwe.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
