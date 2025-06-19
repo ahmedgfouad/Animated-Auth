@@ -19,7 +19,8 @@
 - لوحة تحكم (Dashboard) تحتوي على تبويبات متحركة
 - إدارة الحالة باستخدام `flutter_bloc`
 - تنقل مرن باستخدام `go_router`
-- Animations باستخدام `flutter_animate` (implicit و explicit)
+- Animations باستخدام أدوات Flutter الأصلية مثل AnimatedContainer, AnimatedOpacity, TweenAnimationBuilder (implicit و explicit)
+دون استخدام مكتبات خارجية مثل flutter_animate.
 - دعم الوضع الليلي (Dark Mode)
 - تنظيم الكود في Layers واضحة وسهلة التوسع
 
