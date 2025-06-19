@@ -1,30 +1,30 @@
-
-import 'package:animated_auth/core/utils/colors.dart';
-import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
-import 'package:animated_auth/feature/login/presentation/views/widgets/password_field_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {
   const CustomTextFormFieldWidget({
     super.key,
-    required this.widget,
-    required FocusNode focusNode,
-  }) : _focusNode = focusNode;
+    required this.hintText,
+    required this.controller,
+    required this.focusNode,
+  });
 
-  final PasswordFieldWidget widget;
-  final FocusNode _focusNode;
+  final String hintText;
+  final TextEditingController? controller;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PasswordVisibilityCubit, bool>(
       builder: (context, isHidden) {
         return TextFormField(
-          controller: widget.controller,
-          focusNode: _focusNode,
+          controller: controller,
+          focusNode: focusNode,
           obscureText: isHidden,
           decoration: InputDecoration(
-            hintText: widget.hintText,
+            hintText: hintText,
             hintStyle: TextStyle(color: context.appColors.grey),
             border: InputBorder.none,
             suffixIcon: IconButton(
@@ -38,7 +38,7 @@ class CustomTextFormFieldWidget extends StatelessWidget {
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
-              return 'Please enter your ${widget.hintText}';
+              return 'Please enter your $hintText';
             }
             return null;
           },

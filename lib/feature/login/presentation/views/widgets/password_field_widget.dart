@@ -1,6 +1,6 @@
-import 'package:animated_auth/feature/login/presentation/views/widgets/custom_text_form_field_widget.dart';
+import 'package:animated_auth/feature/login/presentation/views/widgets/animated_password_container_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/feature/login/presentation/views/widgets/custom_text_form_field_widget.dart';
 
 class PasswordFieldWidget extends StatefulWidget {
   const PasswordFieldWidget({
@@ -21,14 +21,12 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget>
   late FocusNode _focusNode;
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
-
   bool _isFocused = false;
 
   @override
   void initState() {
     super.initState();
-    _focusNode = FocusNode();
-    _focusNode.addListener(_handleFocusChange);
+    _focusNode = FocusNode()..addListener(_handleFocusChange);
 
     _scaleController = AnimationController(
       vsync: this,
@@ -43,11 +41,7 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget>
   void _handleFocusChange() {
     setState(() {
       _isFocused = _focusNode.hasFocus;
-      if (_isFocused) {
-        _scaleController.forward();
-      } else {
-        _scaleController.reverse();
-      }
+      _isFocused ? _scaleController.forward() : _scaleController.reverse();
     });
   }
 
@@ -60,53 +54,17 @@ class _PasswordFieldWidgetState extends State<PasswordFieldWidget>
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        bool isWide = constraints.maxWidth > 600;
-        double fieldWidth = isWide
-            ? constraints.maxWidth * 0.5
-            : constraints.maxWidth;
-
-        return Center(
-          child: SizedBox(
-            width: fieldWidth,
-            child: ScaleTransition(
-              scale: _scaleAnimation,
-              child: AnimatedContainer(
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: context.appColors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    color: _isFocused
-                        ? context.appColors.grey
-                        : context.appColors.grey.withAlpha(100),
-                    width: 1.5,
-                  ),
-                  boxShadow: _isFocused
-                      ? [
-                          BoxShadow(
-                            color: context.appColors.move.withAlpha(100),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
-                          ),
-                        ]
-                      : [],
-                ),
-                child: CustomTextFormFieldWidget(
-                  widget: widget,
-                  focusNode: _focusNode,
-                ),
-              ),
-            ),
-          ),
-        );
-      },
+    return AnimatedPasswordContainerWidget(
+      isFocused: _isFocused,
+      scaleAnimation: _scaleAnimation,
+      child: CustomTextFormFieldWidget(
+        hintText: widget.hintText,
+        controller: widget.controller,
+        focusNode: _focusNode,
+      ),
     );
   }
 }
+
+
+
