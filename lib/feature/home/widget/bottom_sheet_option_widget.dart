@@ -20,7 +20,7 @@ class BottomSheetOptionWidget extends StatefulWidget {
 class _BottomSheetOptionWidgetState extends State<BottomSheetOptionWidget>
     with TickerProviderStateMixin {
   late AnimationController _slideController;
-  late Animation<Offset> _slideAnimation; 
+  late Animation<Offset> _slideAnimation;
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
 

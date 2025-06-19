@@ -1,9 +1,9 @@
-import 'package:animated_auth/core/utils/app_router.dart';
-import 'package:animated_auth/feature/onbording/presentation/manager/onbording_cubit/onbording_cubit.dart';
-import 'package:animated_auth/feature/onbording/presentation/views/widget/onboarding_page.dart';
+import 'package:animated_auth/feature/onbording/presentation/views/widget/onboarding_dots_indicator_widget.dart';
+import 'package:animated_auth/feature/onbording/presentation/views/widget/onboarding_navigation_button_widget.dart';
+import 'package:animated_auth/feature/onbording/presentation/views/widget/onboarding_page_view_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
+import '../../manager/onbording_cubit/onbording_cubit.dart'; 
 
 class OnboardingViewBody extends StatefulWidget {
   const OnboardingViewBody({super.key});
@@ -23,6 +23,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
   @override
   void initState() {
     super.initState();
+
     _pageController = PageController();
 
     _fadeController = AnimationController(
@@ -39,13 +40,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
       duration: const Duration(seconds: 2),
     )..repeat(reverse: true);
 
-    _floatingAnimation =
-        Tween<Offset>(
-          begin: const Offset(0, -0.02),
-          end: const Offset(0, 0.02),
-        ).animate(
-          CurvedAnimation(parent: _floatingController, curve: Curves.easeInOut),
-        );
+    _floatingAnimation = Tween<Offset>(
+      begin: const Offset(0, -0.02),
+      end: const Offset(0, 0.02),
+    ).animate(
+      CurvedAnimation(parent: _floatingController, curve: Curves.easeInOut),
+    );
   }
 
   @override
@@ -64,80 +64,22 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
           _fadeController.forward();
         } else {
           _fadeController.reset();
-        }
-
+        } 
         return Column(
           children: [
             Expanded(
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: 3,
-                onPageChanged: (index) {
-                  context.read<OnboardingCubit>().changePage(index);
-                },
-                itemBuilder: (_, index) {
-                  return AnimatedBuilder(
-                    animation: _pageController,
-                    builder: (context, child) {
-                      double value = 1.0;
-                      if (_pageController.position.haveDimensions) {
-                        value = (_pageController.page! - index).abs();
-                        value = (1 - value.clamp(0.0, 1.0));
-                      }
-                      return Transform.scale(
-                        scale: value,
-                        child: AnimatedOpacity(
-                          opacity: value,
-                          duration: const Duration(milliseconds: 500),
-                          child: SlideTransition(
-                            position: _floatingAnimation,
-                            child: OnboardingPage(index: index),
-                          ),
-                        ),
-                      );
-                    },
-                  );
-                },
-                physics: const BouncingScrollPhysics(),
+              child: OnboardingPageViewWidget(
+                pageController: _pageController,
+                floatingAnimation: _floatingAnimation,
               ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(3, (index) {
-                return AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  margin: const EdgeInsets.all(4),
-                  width: currentIndex == index ? 12 : 8,
-                  height: 8,
-                  decoration: BoxDecoration(
-                    color: currentIndex == index
-                        ? Colors.deepPurple
-                        : Colors.grey,
-                    borderRadius: BorderRadius.circular(4),
-                  ),
-                );
-              }),
-            ),
+            OnboardingDotsIndicatorWidget(currentIndex: currentIndex),
             const SizedBox(height: 20),
-            currentIndex == 2
-                ? FadeTransition(
-                    opacity: _fadeAnimation,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        GoRouter.of(context).push(AppRouter.kLogInView);
-                      },
-                      child: const Text("ابدأ الآن"),
-                    ),
-                  )
-                : IconButton(
-                    icon: const Icon(Icons.arrow_forward_ios),
-                    onPressed: () {
-                      _pageController.nextPage(
-                        duration: const Duration(milliseconds: 400),
-                        curve: Curves.easeInOut,
-                      );
-                    },
-                  ),
+            OnboardingNavigationButtonWidget(
+              currentIndex: currentIndex,
+              fadeAnimation: _fadeAnimation,
+              pageController: _pageController,
+            ),
             const SizedBox(height: 40),
           ],
         );
@@ -145,3 +87,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody>
     );
   }
 }
+
+
+
+
