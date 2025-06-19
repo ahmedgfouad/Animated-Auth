@@ -18,7 +18,7 @@ abstract class AppRouter {
       GoRoute(
         path: '/',
         pageBuilder: (context, state) =>
-            _buildFadeScaleTransitionPage(state, const SplashViwe()),
+            _buildFadeScaleTransitionPage(state, const HomeView()),
       ),
       GoRoute(
         path: kOnboardingView,
