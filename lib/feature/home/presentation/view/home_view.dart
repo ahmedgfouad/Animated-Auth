@@ -1,7 +1,7 @@
 import 'package:animated_auth/core/utils/colors.dart';
-import 'package:animated_auth/feature/home/views/manager/home_cubit/home_cubit%20.dart';
-import 'package:animated_auth/feature/home/widget/animagted_bottom_sheet_content.dart';
-import 'package:animated_auth/feature/home/widget/home_view_body.dart';
+import 'package:animated_auth/feature/home/presentation/manager/home_cubit/home_cubit%20.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/animagted_bottom_sheet_content.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/home_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

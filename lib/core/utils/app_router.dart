@@ -1,4 +1,4 @@
-import 'package:animated_auth/feature/home/views/home_view.dart';
+import 'package:animated_auth/feature/home/presentation/view/home_view.dart';
 import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
 import 'package:animated_auth/feature/login/presentation/views/login_view.dart';
 import 'package:animated_auth/feature/onbording/onboarding_view.dart';

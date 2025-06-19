@@ -8,6 +8,7 @@ class CustomButton extends StatefulWidget {
   final double? width;
   final Color? backgroundColor;
   final Color? textColor;
+  final String loadingText;
 
   const CustomButton({
     super.key,
@@ -17,6 +18,7 @@ class CustomButton extends StatefulWidget {
     this.width,
     this.backgroundColor,
     this.textColor,
+    required this.loadingText,
   });
 
   @override
@@ -94,7 +96,7 @@ class _CustomButtonState extends State<CustomButton>
                   ? AnimatedBuilder(
                       animation: _colorAnimation,
                       builder: (_, __) => Text(
-                        'جاري تسجيل الدخول...',
+                        widget.loadingText,
                         style: TextStyle(
                           color: _colorAnimation.value,
                           fontSize: 16,

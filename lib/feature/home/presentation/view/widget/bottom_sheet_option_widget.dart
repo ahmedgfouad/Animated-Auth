@@ -1,5 +1,7 @@
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/bottom_sheet_image_and_title_widget.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/bottom_sheet_option_container_widget.dart';
 import 'package:flutter/material.dart';
+
 
 class BottomSheetOptionWidget extends StatefulWidget {
   const BottomSheetOptionWidget({
@@ -74,33 +76,10 @@ class _BottomSheetOptionWidgetState extends State<BottomSheetOptionWidget>
           onTapDown: _onTapDown,
           onTapUp: _onTapUp,
           onTap: widget.onTap,
-          child: Container(
-            width: MediaQuery.of(context).size.width / 2.5,
-            height: MediaQuery.of(context).size.height / 8,
-            decoration: BoxDecoration(
-              color: context.appColors.offWhite,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: context.appColors.move,
-                  blurRadius: 5,
-                  offset: Offset(0, 2),
-                ),
-              ],
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset(widget.image, width: 24),
-                const SizedBox(height: 5),
-                Text(
-                  widget.text,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
+          child: BottomSheetOptionContainerWidget(
+            child: BottomSheetImageAndTitleWidget(
+              image: widget.image,
+              text: widget.text,
             ),
           ),
         ),

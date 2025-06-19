@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:animated_auth/feature/login/presentation/views/widgets/custom_text_field_widget.dart';
 
 class EmailFieldWidget extends StatefulWidget {
-  const EmailFieldWidget({super.key, required this.hintText, this.controller});
+  const EmailFieldWidget({super.key, required this.hintText,required this.controller});
 
   final String hintText;
-  final TextEditingController? controller;
+  final TextEditingController controller;
 
   @override
   State<EmailFieldWidget> createState() => _EmailFieldWidgetState();

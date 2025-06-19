@@ -17,7 +17,8 @@ class LoginViewBody extends StatefulWidget {
 
 class _LoginViewBodyState extends State<LoginViewBody> {
   final TextEditingController passwordController = TextEditingController();
-  GlobalKey formKey = GlobalKey<FormState>();
+  final TextEditingController emailController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -36,7 +37,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
             children: [
               AnimatedLoginImageWidget(),
               const SizedBox(height: 30),
-              EmailFieldWidget(hintText: 'Email'),
+              EmailFieldWidget(hintText: 'Email', controller: emailController),
               const SizedBox(height: 30),
 
               BlocProvider(
@@ -51,8 +52,13 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               CustomButton(
                 text: 'Login',
                 onPressed: () {
-                  GoRouter.of(context).push(AppRouter.kHomeView);
+                  if (formKey.currentState!.validate()) {
+                    GoRouter.of(context).push(AppRouter.kHomeView);
+                    passwordController.clear();
+                    emailController.clear();
+                  }
                 },
+                loadingText: ' Logging in......',
               ),
             ],
           ),

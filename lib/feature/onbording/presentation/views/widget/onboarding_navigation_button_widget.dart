@@ -1,4 +1,3 @@
-
 import 'package:animated_auth/core/utils/app_router.dart';
 import 'package:animated_auth/core/utils/colors.dart';
 import 'package:animated_auth/core/widgets/custom_button.dart';
@@ -29,6 +28,7 @@ class OnboardingNavigationButtonWidget extends StatelessWidget {
                 onPressed: () {
                   GoRouter.of(context).push(AppRouter.kLogInView);
                 },
+                loadingText: 'waiting...',
               ),
             ),
           )

@@ -1,6 +1,6 @@
 import 'package:animated_auth/feature/home/data/models/dashpord_data_model.dart';
-import 'package:animated_auth/feature/home/views/manager/home_cubit/home_cubit%20.dart';
-import 'package:animated_auth/feature/home/widget/custom_home_cart_widget.dart';
+import 'package:animated_auth/feature/home/presentation/manager/home_cubit/home_cubit%20.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/custom_home_cart_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

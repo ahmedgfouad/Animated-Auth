@@ -1,6 +1,6 @@
 
-import 'package:animated_auth/feature/home/widget/list_of_home_cart_for_mobile_widget.dart';
-import 'package:animated_auth/feature/home/widget/list_of_home_cart_for_web_widget.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/list_of_home_cart_for_mobile_widget.dart';
+import 'package:animated_auth/feature/home/presentation/view/widget/list_of_home_cart_for_web_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListOfHomeCartWidget extends StatelessWidget {
