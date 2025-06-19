@@ -1,8 +1,11 @@
 import 'package:animated_auth/core/utils/app_router.dart';
-import 'package:animated_auth/core/utils/images.dart';
 import 'package:animated_auth/core/widgets/custom_button.dart';
-import 'package:animated_auth/feature/login/presentation/views/widgets/custom_textformfield_widget.dart';
+import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
+import 'package:animated_auth/feature/login/presentation/views/widgets/animated_login_image_widget.dart';
+import 'package:animated_auth/feature/login/presentation/views/widgets/email_filed_widget.dart';
+import 'package:animated_auth/feature/login/presentation/views/widgets/password_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -12,29 +15,13 @@ class LoginViewBody extends StatefulWidget {
   State<LoginViewBody> createState() => _LoginViewBodyState();
 }
 
-class _LoginViewBodyState extends State<LoginViewBody>
-    with SingleTickerProviderStateMixin {
-  late final AnimationController _controller;
-  late final Animation<Offset> _slideAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..repeat(reverse: true);
-
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, -0.01),
-      end: const Offset(0, 0.01),
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
-  }
+class _LoginViewBodyState extends State<LoginViewBody> {
+  final TextEditingController passwordController = TextEditingController();
+  GlobalKey formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
-    _controller.dispose();
+    passwordController.dispose();
     super.dispose();
   }
 
@@ -43,29 +30,32 @@ class _LoginViewBodyState extends State<LoginViewBody>
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            SlideTransition(
-              position: _slideAnimation,
-              child: Image.asset(
-                AppImages.splashImg,
-                height: 200,
-                width: 200,
-                fit: BoxFit.cover,
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              AnimatedLoginImageWidget(),
+              const SizedBox(height: 30),
+              EmailFieldWidget(hintText: 'Email'),
+              const SizedBox(height: 30),
+
+              BlocProvider(
+                create: (_) => PasswordVisibilityCubit(),
+                child: PasswordFieldWidget(
+                  hintText: 'Password',
+                  controller: passwordController,
+                ),
               ),
-            ),
-            const SizedBox(height: 30),
-            CustomTextFormFieldWidget(hintText: 'البريد الإلكتروني'),
-            const SizedBox(height: 30),
-            CustomTextFormFieldWidget(hintText: 'كلمة المرور'),
-            const SizedBox(height: 30),
-            CustomButton(
-              text: 'تسجيل الدخول',
-              onPressed: () {
-                GoRouter.of(context).push(AppRouter.kHomeView);
-              },
-            ),
-          ],
+
+              const SizedBox(height: 30),
+              CustomButton(
+                text: 'Login',
+                onPressed: () {
+                  GoRouter.of(context).push(AppRouter.kHomeView);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );

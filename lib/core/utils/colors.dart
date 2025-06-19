@@ -32,7 +32,7 @@ class AppColors extends ThemeExtension<AppColors> {
     Color? green,
   }) {
     return AppColors(
-      move: browen ?? this.move,
+      move: browen ?? move,
       orange: orange ?? this.orange,
       white: white ?? this.white,
       offWhite: offWhite ?? this.offWhite,

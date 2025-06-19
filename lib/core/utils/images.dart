@@ -6,4 +6,5 @@ class AppImages {
   static const reportImg = 'assets/report.png';
   static const settingImg = 'assets/setting.png';
   static const profileImg = 'assets/profile.png';
+  static const loginImg = 'assets/login.webp';
 }

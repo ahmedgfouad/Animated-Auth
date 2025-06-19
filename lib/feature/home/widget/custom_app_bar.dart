@@ -13,18 +13,26 @@ class CustomAppBar extends StatelessWidget {
       elevation: 0,
       child: Row(
         children: [
-          CircleAvatar(
-            backgroundColor: context.appColors.move,
-            child: IconButton(
-              onPressed: () {
-                context.read<ThemeCubit>().toggleTheme();
-              },
-              icon: Icon(Icons.dark_mode, color: context.appColors.white),
-            ),
+          BlocBuilder<ThemeCubit, ThemeMode>(
+            builder: (context, themeMode) {
+              final isDark = themeMode == ThemeMode.dark;
+              return CircleAvatar(
+                backgroundColor: context.appColors.move,
+                child: IconButton(
+                  onPressed: () {
+                    context.read<ThemeCubit>().toggleTheme();
+                  },
+                  icon: Icon(
+                    isDark ? Icons.light_mode : Icons.dark_mode,
+                    color: context.appColors.white,
+                  ),
+                ),
+              );
+            },
           ),
           const Spacer(),
           const Text(
-            "Profile",
+            "Dashboard",
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ],
