@@ -7,8 +7,8 @@
 
 ## 🎬 العرض التوضيحي
 
-[📽️ اضغط هنا لمشاهدة الفيديو]([https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing))
-
+[[📽️ اضغط هنا لمشاهدة الفيديو]([https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing))
+](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing)
 ---
 
 ## 🧩 مميزات التطبيق
