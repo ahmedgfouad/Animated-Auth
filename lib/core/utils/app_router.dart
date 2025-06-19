@@ -3,6 +3,7 @@ import 'package:animated_auth/feature/login/presentation/manager/password_cubit/
 import 'package:animated_auth/feature/login/presentation/views/login_view.dart';
 import 'package:animated_auth/feature/onbording/onboarding_view.dart';
 import 'package:animated_auth/feature/splash/presentation/views/splash_viwe.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,19 +15,52 @@ abstract class AppRouter {
 
   static final router = GoRouter(
     routes: [
-      GoRoute(path: '/', builder: (context, state) => const SplashViwe()),
+      GoRoute(
+        path: '/',
+        pageBuilder: (context, state) =>
+            _buildFadeScaleTransitionPage(state, const SplashViwe()),
+      ),
       GoRoute(
         path: kOnboardingView,
-        builder: (context, state) => OnboardingView(),
+        pageBuilder: (context, state) =>
+            _buildFadeScaleTransitionPage(state, OnboardingView()),
       ),
       GoRoute(
         path: kLogInView,
-        builder: (context, state) => BlocProvider(
-          create: (context) => PasswordVisibilityCubit(),
-          child: LoginView(),
+        pageBuilder: (context, state) => _buildFadeScaleTransitionPage(
+          state,
+          BlocProvider(
+            create: (context) => PasswordVisibilityCubit(),
+            child: LoginView(),
+          ),
         ),
       ),
-      GoRoute(path: kHomeView, builder: (context, state) => HomeView()),
+      GoRoute(
+        path: kHomeView,
+        pageBuilder: (context, state) =>
+            _buildFadeScaleTransitionPage(state, HomeView()),
+      ),
     ],
   );
+
+  static CustomTransitionPage _buildFadeScaleTransitionPage(
+    GoRouterState state,
+    Widget child,
+  ) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 0.95, end: 1.0).animate(
+              CurvedAnimation(parent: animation, curve: Curves.easeOut),
+            ),
+            child: child,
+          ),
+        );
+      },
+    );
+  }
 }
