@@ -13,7 +13,7 @@ class BottomSheetOptionContainerWidget extends StatelessWidget {
         double width;
 
         if (constraints.maxWidth > 600) {
-          width = 200;
+          width = 150;
         } else {
           width = MediaQuery.of(context).size.width / 2.5;
         }
