@@ -1,4 +1,3 @@
-
 import 'package:animated_auth/core/utils/images.dart';
 import 'package:flutter/material.dart';
 
@@ -28,6 +27,12 @@ class _AnimatedLoginImageWidgetState extends State<AnimatedLoginImageWidget>
       begin: const Offset(0, -0.01),
       end: const Offset(0, 0.01),
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeInOut));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override

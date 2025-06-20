@@ -44,7 +44,7 @@ class _EmailFieldWidgetState extends State<EmailFieldWidget>
   @override
   void dispose() {
     _focusNode.dispose();
-    _scaleController.dispose();
+    _scaleController.dispose(); 
     super.dispose();
   }
 

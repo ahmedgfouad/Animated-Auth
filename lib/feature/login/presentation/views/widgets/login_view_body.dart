@@ -23,6 +23,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   @override
   void dispose() {
     passwordController.dispose();
+    emailController.dispose();
     super.dispose();
   }
 
@@ -39,7 +40,6 @@ class _LoginViewBodyState extends State<LoginViewBody> {
               const SizedBox(height: 30),
               EmailFieldWidget(hintText: 'Email', controller: emailController),
               const SizedBox(height: 30),
-
               BlocProvider(
                 create: (_) => PasswordVisibilityCubit(),
                 child: PasswordFieldWidget(
