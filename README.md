@@ -63,6 +63,5 @@
 │   ├── splash/
 │   ├── onboarding/
 │   ├── auth/           
-│   ├── home/         
-├── generated/          
+│   ├── home/                
 ├── main.dart
