@@ -72,13 +72,13 @@ The project follows a **Layered Architecture** that clearly separates responsibi
 ```bash
 /lib
 ├── core/
-│   ├── router/           # App navigation and routes
-│   ├── themes/           # Light/Dark themes and color schemes
-│   ├── constant/         # App-wide constants
-│   └── widgets/          # Shared reusable widgets
+│   ├── router/          
+│   ├── themes/           
+│   ├── constant/         
+│   └── widgets/        
 ├── feature/
-│   ├── splash/           # Splash screen logic and UI
-│   ├── onboarding/       # Onboarding flow
-│   ├── auth/             # Login functionality
-│   ├── home/             # Home screen & dashboard
-├── main.dart             # App entry point
+│   ├── splash/           
+│   ├── onboarding/ 
+│   ├── auth/           
+│   ├── home/            
+├── main.dart       
