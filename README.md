@@ -54,12 +54,15 @@
 
 ```bash
 /lib
-├── core/                # الثوابت والألوان
-│   └── utils/
+├── core/
+│   ├── router/           
+│   ├── themes/        
+│   ├── constant/        
+│   └── widgets/  
 ├── feature/
 │   ├── splash/
 │   ├── onboarding/
-│   ├── auth/            # تسجيل الدخول والتسجيل
-│   ├── home/            # الشاشة الرئيسية (Dashboard)
-├── generated/           # ملفات الترجمة (إن وجدت)
+│   ├── auth/           
+│   ├── home/         
+├── generated/          
 ├── main.dart
