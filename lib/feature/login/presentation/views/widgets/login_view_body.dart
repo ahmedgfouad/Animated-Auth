@@ -1,4 +1,4 @@
-import 'package:animated_auth/core/utils/app_router.dart';
+import 'package:animated_auth/core/router/app_router.dart';
 import 'package:animated_auth/core/widgets/custom_button.dart';
 import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
 import 'package:animated_auth/feature/login/presentation/views/widgets/animated_login_image_widget.dart';

@@ -1,4 +1,4 @@
-import 'package:animated_auth/core/utils/images.dart';
+import 'package:animated_auth/core/constant/images.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedLoginImageWidget extends StatefulWidget {

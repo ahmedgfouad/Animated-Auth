@@ -1,4 +1,4 @@
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/core/theme/colors.dart';
 import 'package:animated_auth/feature/splash/presentation/views/widgets/splash_body_widget.dart';
 import 'package:flutter/material.dart';
 

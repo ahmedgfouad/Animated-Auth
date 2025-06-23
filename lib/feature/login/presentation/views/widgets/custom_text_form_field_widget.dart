@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/core/theme/colors.dart';
 import 'package:animated_auth/feature/login/presentation/manager/password_cubit/password_cubit.dart';
 
 class CustomTextFormFieldWidget extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:animated_auth/feature/login/presentation/views/widgets/email_filed_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/core/theme/colors.dart';
 
 void main() {
   testWidgets('EmailFieldWidget displays hint and responds to focus', (tester) async {

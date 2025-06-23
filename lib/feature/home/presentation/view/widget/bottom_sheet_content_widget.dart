@@ -1,4 +1,4 @@
-import 'package:animated_auth/core/utils/images.dart';
+import 'package:animated_auth/core/constant/images.dart';
 import 'package:animated_auth/feature/home/presentation/view/widget/bottom_sheet_option_widget.dart';
 import 'package:flutter/material.dart';
 

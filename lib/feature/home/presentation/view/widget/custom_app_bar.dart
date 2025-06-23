@@ -1,7 +1,7 @@
 import 'package:animated_auth/feature/home/presentation/manager/theam_cubit/theam_cubit%20.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/core/theme/colors.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({super.key});

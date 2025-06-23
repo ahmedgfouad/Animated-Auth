@@ -1,5 +1,5 @@
 
-import 'package:animated_auth/core/utils/colors.dart';
+import 'package:animated_auth/core/theme/colors.dart';
 import 'package:flutter/material.dart';
 
 class AnimatedEmailContainerWidget extends StatelessWidget {
