@@ -49,12 +49,17 @@
 - مكونات مشتركة (Widgets مثل الأزرار، مربعات الإدخال، إلخ)
 
 ---
+<p align="center">
+  <img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/5.gif?raw=true" width="250" alt="Auth Demo" style="margin-right: 20px;" />
+  <img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/1.gif?raw=true" width="250" alt="Auth Demo" style="margin-right: 20px;" />
+  <img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/2.gif?raw=true" width="250" alt="Auth Demo" />
+</p>
 
-<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/5.gif?raw=true" width="400" alt="Auth Demo"/>
-<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/1.gif?raw=true" width="400" alt="Auth Demo"/>
-<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/2.gif?raw=true" width="400" alt="Auth Demo"/>
-<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/4.gif?raw=true" width="400" alt="Auth Demo"/>
-<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/3.gif?raw=true" width="400" alt="Auth Demo"/>
+<p align="center">
+  <img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/4.gif?raw=true" width="400" alt="Auth Demo" style="margin-right: 20px;" />
+  <img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/3.gif?raw=true" width="400" alt="Auth Demo" />
+</p>
+
 
 
 
