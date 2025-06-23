@@ -7,8 +7,12 @@
 
 ## 🎬 العرض التوضيحي
 
-[[📽️ اضغط هنا لمشاهدة الفيديو]([https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing))
-](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing)
+### 📱 نسخة الموبايل:
+[🔗 اضغط هنا لمشاهدة فيديو الموبايل](https://drive.google.com/file/d/13DI712MnUke_Vi4YQ3Cl3WejQNo3Xp_x/view?usp=sharing)
+
+### 💻 نسخة الويب:
+[🔗 اضغط هنا لمشاهدة فيديو الويب](https://drive.google.com/file/d/1ELcgE2lDgm6aJY8J_EjAw-emTOa1FW_i/view?usp=sharing)
+
 ---
 
 ## 🧩 مميزات التطبيق
