@@ -50,6 +50,14 @@
 
 ---
 
+<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/5.gif?raw=true" width="400" alt="Auth Demo"/>
+<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/1.gif?raw=true" width="400" alt="Auth Demo"/>
+<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/2.gif?raw=true" width="400" alt="Auth Demo"/>
+<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/4.gif?raw=true" width="400" alt="Auth Demo"/>
+<img src="https://github.com/ahmedgfouad/Animated-Auth/blob/main/3.gif?raw=true" width="400" alt="Auth Demo"/>
+
+
+
 ## 📁 هيكل المجلدات
 
 ```bash
