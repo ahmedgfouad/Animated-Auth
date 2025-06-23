@@ -43,7 +43,7 @@
   - `HomeCubit`
 
 ### 3. Core Layer
-- تنظيم الثوابت والألوان والـ Themes في `core/utils`
+- تنظيم الثوابت والألوان والـ Themes في `core/`
 
 ### 4. Shared Layer
 - مكونات مشتركة (Widgets مثل الأزرار، مربعات الإدخال، إلخ)
